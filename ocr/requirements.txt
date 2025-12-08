@@ -1,0 +1,7 @@
+flask>=2.3
+transformers>=4.30
+datasets
+pillow
+torch
+gdown
+uvicorn
