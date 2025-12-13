@@ -1,0 +1,8 @@
+# 数据集配置文件
+# 训练集/验证集图片路径（替换成你自己的绝对路径！比如C:/dataset_homework/images/train）
+train: C:\Users\28620\Desktop\dataset_homework\images\train
+val: C:\Users\28620\Desktop\dataset_homework\images\val
+
+# 类别数 + 类别名（只有1个类别question）
+nc: 1
+names: [ 'question' ]
