@@ -1,0 +1,86 @@
+{
+  "question_validation_cases": [
+    {
+      "case_id": "valid_question_001",
+      "input": {
+        "id": "q123",
+        "type": "algebra",
+        "text": "解方程 2x + 3 = 7",
+        "known_facts": ["2x+3=7"],
+        "unknowns": ["x"],
+        "constrains": ["x是整数"],
+        "img_vec": []
+      },
+      "expected": {
+        "is_valid": true,
+        "error_msg": ""
+      }
+    },
+    {
+      "case_id": "invalid_question_missing_text",
+      "input": {
+        "id": "q124",
+        "type": "geometry",
+        "text": "",
+        "known_facts": [],
+        "unknowns": ["面积"],
+        "constrains": [],
+        "img_vec": [0.1, 0.2]
+      },
+      "expected": {
+        "is_valid": false,
+        "error_msg": "题目文本（text）不能为空"
+      }
+    },
+    {
+      "case_id": "invalid_question_invalid_type",
+      "input": {
+        "id": "q125",
+        "type": "physics",
+        "text": "计算重力加速度",
+        "known_facts": [],
+        "unknowns": ["g"],
+        "constrains": [],
+        "img_vec": []
+      },
+      "expected": {
+        "is_valid": false,
+        "error_msg": "题目类型（type）必须为 'algebra' 或 'geometry'"
+      }
+    }
+  ],
+  "solution_validation_cases": [
+    {
+      "case_id": "valid_solution_001",
+      "input": {
+        "answer": "x=2",
+        "steps": [
+          {"step_index": 1, "step_text": "移项得 2x = 7-3"},
+          {"step_index": 2, "step_text": "计算得 2x=4"},
+          {"step_index": 3, "step_text": "两边除以2得 x=2"}
+        ],
+        "confidence": 0.92,
+        "rating": 0.85,
+        "difficulty_vec": [0.3, 0.5, 0.2]
+      },
+      "expected": {
+        "is_valid": true,
+        "error_msg": ""
+      }
+    },
+    {
+      "case_id": "invalid_solution_confidence",
+      "input": {
+        "answer": "3",
+        "steps": [{"step_index": 1, "step_text": "直接计算"}],
+        "confidence": 1.5,
+        "rating": 0.7,
+        "difficulty_vec": [0.1]
+      },
+      "expected": {
+        "is_valid": false,
+        "error_msg": "置信度（confidence）必须在 [0, 1] 范围内"
+      }
+    }
+  ]
+}
